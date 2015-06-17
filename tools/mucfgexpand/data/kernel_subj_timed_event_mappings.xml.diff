@@ -5,6 +5,7 @@
                                                                                                                                                      >     <cpu id="0">
                                                                                                                                                      >      <memory executable="false" logical="lnx|timed_event" physical="lnx|timed_event" virtualAddress="16#0040_1000#" writable="true"/>
                                                                                                                                                      >      <memory executable="false" logical="subject1|timed_event" physical="subject1|timed_event" virtualAddress="16#0040_2000#" writable="true"/>
+                                                                                                                                                     >      <memory executable="false" logical="guest_vm|timed_event" physical="guest_vm|timed_event" virtualAddress="16#0040_4000#" writable="true"/>
                                                                                                                                                      >     </cpu>
                                                                                                                                                      >     <cpu id="1">
                                                                                                                                                      >      <memory executable="false" logical="subject2|timed_event" physical="subject2|timed_event" virtualAddress="16#0040_3000#" writable="true"/>
@@ -28,3 +29,9 @@
   <subject name="subject2" profile="native">                                                                                                         |    <subject cpu="1" id="3" name="subject2" profile="native">
    <vcpu>                                                                                                                                                  <vcpu>
     <registers>                                                                                                                                             <registers>
+--
+   </component>                                                                                                                                            </component>
+  </subject>                                                                                                                                              </subject>
+  <subject name="guest_vm" profile="full_vm">                                                                                                        |    <subject cpu="0" id="4" name="guest_vm" profile="full_vm">
+   <bootparams/>                                                                                                                                           <bootparams/>
+   <memory>                                                                                                                                                <memory>

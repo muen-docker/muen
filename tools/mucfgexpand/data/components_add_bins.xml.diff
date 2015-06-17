@@ -9,6 +9,9 @@
                                                                                                                                                      >    <memory alignment="16#1000#" caching="WB" name="subject2|bin" size="16#1000#" type="subject_binary">
                                                                                                                                                      >     <file filename="c2_bin" offset="none"/>
                                                                                                                                                      >    </memory>
+                                                                                                                                                     >    <memory alignment="16#1000#" caching="WB" name="guest_vm|bin" size="16#1000#" type="subject_binary">
+                                                                                                                                                     >     <file filename="c1_bin" offset="none"/>
+                                                                                                                                                     >    </memory>
  </memory>                                                                                                                                               </memory>
  <deviceDomains>                                                                                                                                         <deviceDomains>
 --
@@ -29,3 +32,9 @@
                                                                                                                                                      >      <memory executable="true" logical="binary" physical="subject2|bin" virtualAddress="16#0020_0000#" writable="true"/>
    </memory>                                                                                                                                               </memory>
    <devices>                                                                                                                                               <devices>
+--
+   <memory>                                                                                                                                                <memory>
+    <memory executable="false" logical="dummy" physical="dummy" virtualAddress="16#1000#" writable="true"/>                                                 <memory executable="false" logical="dummy" physical="dummy" virtualAddress="16#1000#" writable="true"/>
+                                                                                                                                                     >      <memory executable="true" logical="binary" physical="guest_vm|bin" virtualAddress="16#0020_0000#" writable="true"/>
+   </memory>                                                                                                                                               </memory>
+   <devices/>                                                                                                                                              <devices/>

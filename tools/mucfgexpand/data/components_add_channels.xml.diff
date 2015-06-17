@@ -24,3 +24,9 @@
                                                                                                                                                      >     </channels>
    <component ref="c2">                                                                                                                                    <component ref="c2">
     <map logical="primary_data" physical="data_channel3"/>                                                                                                  <map logical="primary_data" physical="data_channel3"/>
+--
+   <devices/>                                                                                                                                              <devices/>
+   <events/>                                                                                                                                               <events/>
+                                                                                                                                                     >     <channels/>
+   <component ref="c1"/>                                                                                                                                   <component ref="c1"/>
+  </subject>                                                                                                                                              </subject>

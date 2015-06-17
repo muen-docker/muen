@@ -15,3 +15,9 @@
                                                                                                                                                      >      <memory executable="false" logical="timed_event" physical="subject2|timed_event" virtualAddress="16#000e_0001_0000#" writable="true"/>
    </memory>                                                                                                                                               </memory>
    <devices>                                                                                                                                               <devices>
+--
+   <memory>                                                                                                                                                <memory>
+    <memory executable="false" logical="dummy" physical="dummy" virtualAddress="16#1000#" writable="true"/>                                                 <memory executable="false" logical="dummy" physical="dummy" virtualAddress="16#1000#" writable="true"/>
+                                                                                                                                                     >      <memory executable="false" logical="timed_event" physical="guest_vm|timed_event" virtualAddress="16#000e_0001_0000#" writable="true"/>
+   </memory>                                                                                                                                               </memory>
+   <devices/>                                                                                                                                              <devices/>

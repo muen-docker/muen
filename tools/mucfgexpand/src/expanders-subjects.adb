@@ -49,27 +49,28 @@ is
 
    use Ada.Strings.Unbounded;
 
-   type Subject_Profile_Type is (Native, VM, Linux);
+   type Subject_Profile_Type is (Native, VM, Linux, Full_VM);
 
    --  Mapping of subject profiles to VCPU profiles.
    Subj_VCPU_Profile_Map : constant array
      (Subject_Profile_Type) of Mucfgvcpu.Profile_Type
      := (Native     => Mucfgvcpu.Native,
-         VM | Linux => Mucfgvcpu.VM);
+         VM | Linux => Mucfgvcpu.VM,
+         Full_VM    => Mucfgvcpu.Full_VM);
 
    --  Mapping of subject profiles to legacy IRQ vector remapping offset.
    --  Note: Linux uses IRQ0 (vector 48) for the timer.
    Subj_IRQ_Remap_Offset : constant array
      (Subject_Profile_Type) of Natural
-     := (Native     => Mutools.Constants.Host_IRQ_Remap_Offset,
-         VM | Linux => 48);
+     := (Native               => Mutools.Constants.Host_IRQ_Remap_Offset,
+         VM | Linux | Full_VM => 48);
 
    --  Mapping of subject profiles to MSI vector remapping offset.
    --  The value 40 is chosen to remap MSIs since it is the one used by Linux.
    Subj_MSI_Remap_Offset : constant array
      (Subject_Profile_Type) of Natural
-     := (Native     => Mutools.Constants.Host_IRQ_Remap_Offset + 40,
-         VM | Linux => 48 + 40);
+     := (Native               => Mutools.Constants.Host_IRQ_Remap_Offset + 40,
+         Full_VM | VM | Linux => 48 + 40);
 
    -------------------------------------------------------------------------
 
@@ -1414,6 +1415,7 @@ is
                   Profiles.Handle_Linux_Profile
                     (Data    => Data,
                      Subject => Subj);
+               when Full_VM => null;
             end case;
 
             DOM.Core.Elements.Remove_Attribute
