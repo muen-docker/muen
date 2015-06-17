@@ -2,7 +2,8 @@ COMPONENT = libmucfgvcpu
 
 PROFILE_FILES = \
 	$(GEN_DIR)/mucfgvcpu-profile_native.ads \
-	$(GEN_DIR)/mucfgvcpu-profile_vm.ads
+	$(GEN_DIR)/mucfgvcpu-profile_vm.ads     \
+	$(GEN_DIR)/mucfgvcpu-profile_fullvm.ads
 
 COMPONENT_TARGETS = $(PROFILE_FILES)
 TEST_TARGETS      = $(COMPONENT_TARGETS)
