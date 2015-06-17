@@ -27,6 +27,7 @@
 			<xs:enumeration value="native"/>
 			<xs:enumeration value="vm"/>
 			<xs:enumeration value="linux"/>
+			<xs:enumeration value="full_vm"/>
 		</xs:restriction>
 	</xs:simpleType>
 
