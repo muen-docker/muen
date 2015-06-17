@@ -21,7 +21,7 @@ with DOM.Core;
 package Mucfgvcpu
 is
 
-   type Profile_Type is (Native, VM);
+   type Profile_Type is (Native, VM, Full_VM);
 
    --  Set given vcpu node to values of specified profile.
    procedure Set_VCPU_Profile

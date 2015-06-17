@@ -25,6 +25,7 @@ with Muxml.Utils;
 
 with Mucfgvcpu.Profile_native;
 with Mucfgvcpu.Profile_vm;
+with Mucfgvcpu.Profile_fullvm;
 
 package body Mucfgvcpu
 is
@@ -41,8 +42,9 @@ is
    end record;
 
    Profile_Map : constant array (Profile_Type) of VCPU_Info_Type
-     := (Native => (XML => Profile_native.Data'Access),
-         VM     => (XML => Profile_vm.Data'Access));
+     := (Native  => (XML => Profile_native.Data'Access),
+         VM      => (XML => Profile_vm.Data'Access),
+         Full_VM => (XML => Profile_fullvm.Data'Access));
 
    -------------------------------------------------------------------------
 
