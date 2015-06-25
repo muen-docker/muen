@@ -67,6 +67,15 @@ is
    type XSAVE_Area_Type is array (XSAVE_Area_Range) of Byte;
    for XSAVE_Area_Type'Alignment use 64;
 
+   type Segment_Type is record
+      Selector      : SK.Word64;
+      Base          : SK.Word64;
+      Limit         : SK.Word32;
+      Access_Rights : SK.Word32;
+   end record;
+
+   Null_Segment : constant Segment_Type;
+
    --  TODO: Fix guest state fields widths, introduce segment type etc.
 
    --  Subject state.
@@ -135,8 +144,22 @@ is
 
 private
 
+   for Segment_Type use record
+      Selector      at  0 range 0 .. 63;
+      Base          at  8 range 0 .. 63;
+      Limit         at 16 range 0 .. 31;
+      Access_Rights at 20 range 0 .. 31;
+   end record;
+
    Null_CPU_Regs : constant CPU_Registers_Type
      := CPU_Registers_Type'(others => 0);
+
+   Null_Segment : constant Segment_Type
+     := Segment_Type'(Selector
+                      => 0,
+                      Base          => 0,
+                      Limit         => 0,
+                      Access_Rights => 0);
 
    Null_Subject_State : constant Subject_State_Type
      := Subject_State_Type'
