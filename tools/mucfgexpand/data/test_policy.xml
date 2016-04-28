@@ -227,6 +227,15 @@
     <map logical="secondary_data" physical="data_channel4"/>
    </component>
   </subject>
+  <subject name="guest_vm" profile="full_vm">
+   <bootparams/>
+   <memory>
+    <memory executable="false" logical="dummy" physical="dummy" virtualAddress="16#1000#" writable="true"/>
+   </memory>
+   <devices/>
+   <events/>
+   <component ref="c1"/>
+  </subject>
  </subjects>
  <scheduling tickRate="10000">
   <majorFrame>
@@ -247,7 +256,7 @@
     <minorFrame subject="lnx" ticks="40"/>
     <minorFrame subject="lnx" ticks="20"/>
     <minorFrame subject="lnx" ticks="10"/>
-    <minorFrame subject="lnx" ticks="10"/>
+    <minorFrame subject="guest_vm" ticks="10"/>
    </cpu>
    <cpu id="1">
     <minorFrame subject="tau0" ticks="10"/>
