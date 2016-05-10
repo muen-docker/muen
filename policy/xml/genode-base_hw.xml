@@ -245,8 +245,8 @@
 				<memory logical="vm_ram_4" physical="guest_vm|ram_4" virtualAddress="16#0010_0000#" writable="true" executable="true"/>
 				<memory logical="vm_vga_1" physical="guest_vm|vga_1" virtualAddress="16#e000_0000#" writable="true" executable="false"/>
 				<memory logical="vm_pcbios_3" physical="guest_vm|pcbios_3" virtualAddress="16#ffff_0000#" writable="false" executable="true"/>
-				<memory logical="vm_vmmdev_1" physical="guest_vm|vmmdev_1" virtualAddress="16#f000_0000#" writable="true" executable="true"/>
-				<memory logical="vm_vmmdev_2" physical="guest_vm|vmmdev_2" virtualAddress="16#f040_0000#" writable="true" executable="true"/>
+				<memory logical="vm_vmmdev_1" physical="guest_vm|vmmdev_1" virtualAddress="16#f040_0000#" writable="true" executable="true"/>
+				<memory logical="vm_vmmdev_2" physical="guest_vm|vmmdev_2" virtualAddress="16#f080_0000#" writable="true" executable="true"/>
 			</memory>
 			<devices/>
 			<events>
