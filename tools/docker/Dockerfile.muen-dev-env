@@ -101,9 +101,14 @@ RUN curl -sSL "https://codelabs-ch.github.io/buildroot-muen/initramfs.cpio.xz" -
 
 # Grab Muen source code
 ARG muen_branch=devel
-RUN git clone --recursive -b $muen_branch https://git.codelabs.ch/git/muen.git
-
+RUN git clone -b $muen_branch https://git.codelabs.ch/git/muen.git
 WORKDIR $HOME/muen
+
+# Set explicit submodule URLs to make this work for github mirror
+RUN git config -f .gitmodules submodule.components/linux/src.url https://git.codelabs.ch/git/muen/linux.git \
+	&& git config -f .gitmodules submodule.tools/mugenschedcfg.url https://git.codelabs.ch/git/muen/mugenschedcfg.git \
+	&& git config -f .gitmodules submodule.components/libxhcidbg.url https://git.codelabs.ch/git/libxhcidbg.git \
+	&& git submodule update --init
 
 # Download 3rd-party libraries
 RUN make -C contrib download
