@@ -43,7 +43,9 @@ deploy: HARDWARE=hardware/lenovo-t430s.xml
 deploy: pack
 	$(MAKE) -C $@
 
-emulate: pack
+emulate-bochs: HARDWARE=hardware/bochs.xml
+emulate-bochs: SYSTEM=xml/demo_system.xml
+emulate-bochs emulate: pack
 	$(MAKE) -C $@
 
 iso: HARDWARE=hardware/lenovo-t430s.xml
