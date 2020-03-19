@@ -3,14 +3,15 @@
 # This script expects a block device on the server side with the following
 # configuration:
 
-# sdX1 - ext* partition - ref files, stretch-chroot in ./
+# sdX1 - ext* partition - ref files, buster-chroot in ./
 #  $ sudo mkfs.ext4 /dev/sdX1
 #  $ sudo mount /dev/sdX1 /mnt
 #  $ sudo mkdir /mnt/files && cd /mnt/files
 #  $ sudo tools/scripts/integ/target_scripts/muenblock-ref .
-#  $ cd /mnt && sudo debootstrap stretch ./stretch-chroot http://deb.debian.org/debian
-#  $ sudo chroot /mnt/stretch-chroot
+#  $ cd /mnt && sudo debootstrap buster ./buster-chroot http://deb.debian.org/debian
+#  $ sudo chroot /mnt/buster-chroot
 #  # apt install cryptsetup lvm2
+#  $ sudo umount /mnt
 # sdX2 - ext* partition
 #  $ sudo mkfs.ext2 /dev/sdX2
 # sdX5 - ext* on lvm on dm-crypt
@@ -29,7 +30,7 @@ SCRIPTDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REFS="/mnt/1/files"
 SHACMD="sha256sum -c sha256sum"
 SSH="ssh -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no lnx2"
-CHROOT=/mnt/1/stretch-chroot
+CHROOT=/mnt/1/buster-chroot
 
 perform_tests() {
 	execute "cd $REFS"

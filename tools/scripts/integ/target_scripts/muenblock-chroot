@@ -2,7 +2,7 @@
 
 SCRIPTDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 . $SCRIPTDIR/func.sh
-CHROOT=/mnt/1/stretch-chroot
+CHROOT=/mnt/1/buster-chroot
 
 execute "mount -o bind /dev $CHROOT/dev"
 execute "mount -t sysfs sysfs $CHROOT/sys"
