@@ -104,7 +104,7 @@ execute "mount -t sysfs sysfs $CHROOT/sys"
 execute "mount -t proc proc $CHROOT/proc"
 
 execute "mkdir -p $CHROOT/tmp/1"
-execute "mount -o loop /mnt/1 $CHROOT/tmp/1"
+execute "mount -o bind /mnt/1 $CHROOT/tmp/1"
 execute "cp /usr/local/bin/muenblock-lvops $CHROOT/tmp"
 execute "cp /usr/local/bin/func.sh $CHROOT/tmp"
 execute "chroot $CHROOT /tmp/muenblock-lvops"
