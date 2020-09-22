@@ -99,19 +99,7 @@ execute "umount /mnt/2"
 
 # ext* on lvm on crypt
 
-execute "mount -o bind /dev $CHROOT/dev"
-execute "mount -t sysfs sysfs $CHROOT/sys"
-execute "mount -t proc proc $CHROOT/proc"
-
-execute "mkdir -p $CHROOT/tmp/1"
-execute "mount -o bind /mnt/1 $CHROOT/tmp/1"
-execute "cp /usr/local/bin/muenblock-lvops $CHROOT/tmp"
-execute "cp /usr/local/bin/func.sh $CHROOT/tmp"
-execute "chroot $CHROOT /tmp/muenblock-lvops"
-execute "umount $CHROOT/dev"
-execute "umount $CHROOT/sys"
-execute "umount $CHROOT/proc"
-execute "umount $CHROOT/tmp/1"
+execute "muenblock-lvops"
 execute "umount /mnt/1"
 execute "fsck -n /dev/muendiska1"
 execute "fsck -n /dev/muendiska2"
